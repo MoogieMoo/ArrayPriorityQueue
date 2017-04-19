@@ -90,7 +90,12 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	System.out.println( "Should print out 1, 2, 4, 6, 7, 7..." );
 	System.out.println( "Testing toString()..." );
 	System.out.println( test1 );
-	
+
+	System.out.println( "Peeking at smallest element, should return 1..." );
+	test1.peekMin();
+	System.out.println( "Removing smallest element..." );
+	test1.removeMin();
+	System.out.println( "Should print 2, 4, 6, 7, 7..." );
     }	
 
 }//end class ArraypriorityQueue
