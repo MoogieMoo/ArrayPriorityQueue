@@ -18,17 +18,18 @@ public class ArrayPriorityQueue implements PriorityQueue {
     }
 
     // Adds an item to this priority queue.
-    public void add( item ) 
+    public void add( int item ) 
     {
 	for ( int i = 0; i < queue.size(); i++ ) {
 	    //item is smaller than the ith element
-	    if ( item < queue.get(i) ) {
+	    if ( item < (int) queue.get(i) ) {
 		queue.add( i, item );
 	    }
-	    //item is larger than the ith element
-	    if ( item >= queue.get(i) ) {
+	    //item is larger or equal to the ith element
+	    else {
 		queue.add( i + 1, item );
 	    }
+	}
     }
 
     // Returns true if this stack is empty, otherwise returns false.
@@ -38,21 +39,21 @@ public class ArrayPriorityQueue implements PriorityQueue {
     }
 
     // Returns the smallest item stored in this priority queue without removing it.
-    public peekMin() 
+    public int peekMin() 
     {
-	return queue.get(0);
+	return (int) queue.get(0);
     }
 
     // Removes and returns the smallest item stored in this priority queue.
-    public removeMin() 
+    public int removeMin() 
     {
 	//error
 	if ( queue.size() == 0 ) {//nothing to remove
 	    System.out.println( "Error! Nothing to remove!" );
-	    return null;
+	    throw new NoSuchElementException();
 	}
 
-	ret = queue.get(0);
+	int ret = (int) queue.get(0);
 	queue.remove(0);
 	return ret;    
     }
@@ -70,7 +71,26 @@ public class ArrayPriorityQueue implements PriorityQueue {
 
     // Main method
     public static void main ( String[] args ) {
-	PriorityQueue<Integer> test1 = new ArrayPriorityQueue<Integer>();
+
+	ArrayPriorityQueue test1 = new ArrayPriorityQueue();
+	System.out.println( "New ArrayPriorityQueue instantiated..." );
+
+	System.out.println( "Should return true for isEmpty..." );
+	System.out.println( "Testing isEmpty()..." );
+	System.out.println( test1.isEmpty() );
 	
+	System.out.println( "Adding ints [ 4, 6, 1, 7, 7, 2 ]..." );
+	test1.add(4);
+	test1.add(6);
+	test1.add(1);
+	test1.add(7);	
+	test1.add(7);
+	test1.add(2);
+
+	System.out.println( "Should print out 1, 2, 4, 6, 7, 7..." );
+	System.out.println( "Testing toString()..." );
+	System.out.println( test1 );
+	
+    }	
 
 }//end class ArraypriorityQueue
