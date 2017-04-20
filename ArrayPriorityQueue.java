@@ -28,15 +28,13 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	
 	//queue is not empty
 	else {
-	    int i = 0;
 	    //find spot of insetion
-	    while ( (int) queue.get(i) >= item ) {
-		i++;
+	    for ( int i = 0; i < queue.size(); i++ ) {			    
+		if ( (int) queue.get(i) < item ) {
+		    queue.add( i, item );
+		    return;
+		}		
 	    }
-	    if ( (int) queue.get(i) < item ) {
-		queue.add( i, item );
-		return;
-	    }		
 	}
     }
 
