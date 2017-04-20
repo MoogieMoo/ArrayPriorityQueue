@@ -28,18 +28,14 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	
 	//queue is not empty
 	else {
-	    for ( int i = 0; i < queue.size(); i++ ) {
-		//item is smaller than the ith element
-		if ( item >= (int) queue.get(i) ) {
-		    queue.add( i, item );
-		    return;
-		}
-		//item is larger or equal to the ith element
-		else {
-		    queue.add( i + 1, item );
-		    return;
-		}
+	    int i = 0;
+	    //find spot of insetion
+	    while ( queue.get(i) < item ) {
+		i++;
 	    }
+	    if ( queue.get(i) >= item ) {
+		queue.add( i, item );
+	    }		
 	}
     }
 
