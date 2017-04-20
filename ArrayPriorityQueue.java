@@ -23,6 +23,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	//queue is empty
 	if ( queue.isEmpty() ) {
 	    queue.add( item );
+	    return;
 	}
 	
 	//queue is not empty
@@ -30,10 +31,12 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	    //item is smaller than the ith element
 	    if ( item < (int) queue.get(i) ) {
 		queue.add( i + 1, item );
+		return;
 	    }
 	    //item is larger or equal to the ith element
 	    else {
 		queue.add( i, item );
+		return;
 	    }
 	}	
     }
@@ -57,7 +60,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	if ( queue.isEmpty() ) {
 	    throw new NoSuchElementException();
 	}
-	    
+
 	return 0;
     }
 
@@ -100,7 +103,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	test1.add(7);
 	test1.add(2);
 
-	System.out.println( "Should print out 1, 2, 4, 6, 7, 7..." );
+	System.out.println( "Should print out 7, 7, 6, 4, 2, 1..." );
 	System.out.println( "Testing toString()..." );
 	System.out.println( test1 );
 
