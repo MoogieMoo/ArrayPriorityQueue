@@ -47,19 +47,18 @@ public class ArrayPriorityQueue implements PriorityQueue {
     // Returns the smallest item stored in this priority queue without removing it.
     public int peekMin() 
     {
+	for ( int i = 0; i < queue.size(); i++ ) {
+	    if ( queue.get( i + 1 ) == null ) {
+		return (int) queue.get(i);
+	    }
+	}
+	
 	//nothing to peek at!
 	if ( queue.isEmpty() ) {
 	    throw new NoSuchElementException();
 	}
-	//traverse
-	else {
-	    for ( int i = 0; i < queue.size(); i++ ) {
-		if ( queue.get( i + 1 ) == null ) {
-		    return (int) queue.get(i);
-		}
-	    }
-	}
     }
+
 
     // Removes and returns the smallest item stored in this priority queue.
     public int removeMin() 
