@@ -23,6 +23,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	//queue is empty
 	if ( queue.isEmpty() ) {
 	    queue.add( item );
+	    return;
 	}
 	
 	//queue is not empty
@@ -31,10 +32,12 @@ public class ArrayPriorityQueue implements PriorityQueue {
 		//item is smaller than the ith element
 		if ( item >= (int) queue.get(i) ) {
 		    queue.add( i, item );
+		    return;
 		}
 		//item is larger or equal to the ith element
 		else {
 		    queue.add( i + 1, item );
+		    return;
 		}
 	    }
 	}
