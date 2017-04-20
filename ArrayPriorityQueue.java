@@ -35,6 +35,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	    }
 	    if ( (int) queue.get(i) >= item ) {
 		queue.add( i, item );
+		return;
 	    }		
 	}
     }
