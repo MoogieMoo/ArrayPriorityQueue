@@ -52,7 +52,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	    throw new NoSuchElementException();
 	}
 	//traverse
-	for ( int i = 0, i < queue.size(); i++ ) {
+	for ( int i = 0; i < queue.size(); i++ ) {
 	    if ( queue.get( i + 1 ) == null ) {
 		return (int) queue.get(i);
 	    }
