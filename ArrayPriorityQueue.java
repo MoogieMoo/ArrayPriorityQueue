@@ -20,16 +20,22 @@ public class ArrayPriorityQueue implements PriorityQueue {
     // Adds an item to this priority queue.
     public void add( int item ) 
     {
+	//queue is empty
+	if ( queue.isEmpty() ) {
+	    queue.add( item );
+	}
+	
+	//queue is not empty
 	for ( int i = 0; i < queue.size(); i++ ) {
 	    //item is smaller than the ith element
 	    if ( item < (int) queue.get(i) ) {
-		queue.add( i, item );
+		queue.add( i + 1, item );
 	    }
 	    //item is larger or equal to the ith element
 	    else {
-		queue.add( i + 1, item );
+		queue.add( i, item );
 	    }
-	}
+	}	
     }
 
     // Returns true if this stack is empty, otherwise returns false.
@@ -41,14 +47,23 @@ public class ArrayPriorityQueue implements PriorityQueue {
     // Returns the smallest item stored in this priority queue without removing it.
     public int peekMin() 
     {
-	return (int) queue.get(0);
+	//nothing to peek at!
+	if ( queue.isEmpty() ) {
+	    throw new NoSuchElementException();
+	}
+	//traverse
+	for ( int i = 0, i < queue.size(); i++ ) {
+	    if ( queue.get( i + 1 ) == null ) {
+		return (int) queue.get(i);
+	    }
+	}       	
     }
 
     // Removes and returns the smallest item stored in this priority queue.
     public int removeMin() 
     {
 	//error
-	if ( queue.size() == 0 ) {//nothing to remove
+	if ( queue.isEmpty() ) {//nothing to remove
 	    System.out.println( "Error! Nothing to remove!" );
 	    throw new NoSuchElementException();
 	}
@@ -61,12 +76,7 @@ public class ArrayPriorityQueue implements PriorityQueue {
     // toString() method
     public String toString() 
     {
-	String ret = "";
-	for ( int i = 0; i < queue.size(); i++ ) {//traverse
-	    ret += " ";
-	    ret += queue.get(i);//add to String
-	}
-	return ret;	
+	return queue.toString();	
     }
 
     // Main method
