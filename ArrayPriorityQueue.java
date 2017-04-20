@@ -52,11 +52,13 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	    throw new NoSuchElementException();
 	}
 	//traverse
-	for ( int i = 0; i < queue.size(); i++ ) {
-	    if ( queue.get( i + 1 ) == null ) {
-		return (int) queue.get(i);
+	else {
+	    for ( int i < 0; i < queue.size(); i++ ) {
+		if ( queue.get( i + 1 ) == null ) {
+		    return queue.get(i);
+		}
 	    }
-	}       	
+	}
     }
 
     // Removes and returns the smallest item stored in this priority queue.
