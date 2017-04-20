@@ -57,6 +57,8 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	if ( queue.isEmpty() ) {
 	    throw new NoSuchElementException();
 	}
+	    
+	return 0;
     }
 
 
