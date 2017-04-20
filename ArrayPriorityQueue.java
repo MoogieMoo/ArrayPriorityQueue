@@ -30,10 +30,10 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	else {
 	    int i = 0;
 	    //find spot of insetion
-	    while ( queue.get(i) < item ) {
+	    while ( (int) queue.get(i) < item ) {
 		i++;
 	    }
-	    if ( queue.get(i) >= item ) {
+	    if ( (int) queue.get(i) >= item ) {
 		queue.add( i, item );
 	    }		
 	}
