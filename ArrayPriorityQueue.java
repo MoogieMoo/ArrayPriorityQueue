@@ -23,22 +23,21 @@ public class ArrayPriorityQueue implements PriorityQueue {
 	//queue is empty
 	if ( queue.isEmpty() ) {
 	    queue.add( item );
-	    return;
 	}
 	
 	//queue is not empty
-	for ( int i = 0; i < queue.size(); i++ ) {
-	    //item is smaller than the ith element
-	    if ( item < (int) queue.get(i) ) {
-		queue.add( i + 1, item );
-		return;
+	else {
+	    for ( int i = 0; i < queue.size(); i++ ) {
+		//item is smaller than the ith element
+		if ( item >= (int) queue.get(i) ) {
+		    queue.add( i, item );
+		}
+		//item is larger or equal to the ith element
+		else {
+		    queue.add( i + 1, item );
+		}
 	    }
-	    //item is larger or equal to the ith element
-	    else {
-		queue.add( i, item );
-		return;
-	    }
-	}	
+	}
     }
 
     // Returns true if this stack is empty, otherwise returns false.
